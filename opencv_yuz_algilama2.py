@@ -70,11 +70,11 @@ smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile
 
 # Duygular ve mesajlar
 emotions = {
-    'Mutlu': ["Gülümsemen çok güzel Bekir!", "Mutlu görünüyorsun, harika!", "Neşeni görünce ben de mutlu oldum!"],
-    'Üzgün': ["Üzgün görünüyorsun Bekir, bir şeye mi canın sıkıldı?", "Üzülme Bekir, her şey düzelecek.", "Bugün biraz moralsiz görünüyorsun."],
-    'Kızgın': ["Biraz sinirli görünüyorsun Bekir.", "Sakin ol Bekir, her şey yoluna girecek.", "Kızgın mısın Bekir?"],
-    'Şaşkın': ["Şaşırmış görünüyorsun Bekir.", "Bekir, bir şey mi oldu?", "Ne oldu Bekir, şaşırdın mı?"],
-    'Normal': ["Hoş geldin Bekir! Seni algıladım.", "Merhaba Bekir! Bugün nasılsın?", "Selam Bekir! Seni görmek güzel."]
+    'Mutlu': ["Gülümsemen çok güzel !", "Mutlu görünüyorsun, harika!", "Neşeni görünce ben de mutlu oldum!"],
+    'Üzgün': ["Üzgün görünüyorsun , bir şeye mi canın sıkıldı?", "Üzülme , her şey düzelecek.", "Bugün biraz moralsiz görünüyorsun."],
+    'Kızgın': ["Biraz sinirli görünüyorsun .", "Sakin ol Bekir, her şey yoluna girecek.", "Kızgın mısın Bekir?"],
+    'Şaşkın': ["Şaşırmış görünüyorsun .", " bir şey mi oldu?", "Ne oldu, şaşırdın mı?"],
+    'Normal': ["Hoş geldin! Seni algıladım.", "Merhaba ! Bugün nasılsın?", "Selam ! Seni görmek güzel."]
 }
 
 # Sesli okuma motoru
