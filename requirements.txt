@@ -1,0 +1,9 @@
+# Temel paketler
+numpy
+pandas
+matplotlib
+requests
+
+# Bu dosyayı ihtiyaçlarınıza göre düzenleyebilirsiniz.
+# Paketleri yüklemek için:
+# pip install -r requirements.txt

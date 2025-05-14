@@ -1,0 +1,56 @@
+import cv2
+import pyttsx3
+import time
+
+# Sesli okuma motoru
+engine = pyttsx3.init()
+
+# Yüz algılama için Haar Cascade yükle
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Kamerayı aç
+cap = cv2.VideoCapture(0)
+
+face_detected = False
+last_detection_time = 0
+detection_cooldown = 5  # Saniye cinsinden bekleme süresi
+
+print("Kamera açıldı. Yüzünü göster!")
+print("Çıkmak için 'q' tuşuna bas.")
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+        
+    # Gri tonlamaya çevir
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    # Yüzleri algıla
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    
+    current_time = time.time()
+    
+    # Yüz varsa çerçeve çiz
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        
+        # Eğer henüz sesli mesaj okunmadıysa veya cooldown süresi geçtiyse
+        if not face_detected or (current_time - last_detection_time > detection_cooldown):
+            print("Yüz algılandı! Sesli mesaj okunuyor...")
+            engine.say("Hoş geldin Bekir! Seni algıladım.")
+            engine.runAndWait()
+            face_detected = True
+            last_detection_time = current_time
+    
+    # Ekrana bilgi yaz
+    cv2.putText(frame, "Yuz bulundu: {}".format(len(faces) > 0), (10, 30), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+    
+    cv2.imshow("Yüz Algılama", frame)
+    
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
