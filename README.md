@@ -22,7 +22,7 @@
 ## 🖥️ Kullanım
 - Kodu çalıştırın:
   ```bash
-  python opencv_yuz_algilama.py
+  python opencv_yuz_algilama2.py
   ```
 - Efektler: 1-8 arası tuşlar
 - AR Filtreler: B (Gözlük), N (Şapka), M (Bıyık)
